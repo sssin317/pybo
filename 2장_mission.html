@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.write("2장 도전 미션","</br>");
+        document.write("===============================================================","</br>");
+    </script>
+</head>
+<body>
+    <script>
+        document.write("Q1. 진영이의 하루 지출 관리하기 ","</br>");
+        var answer;
+        var price1 = 3000;
+        var price2 = 6000;
+        var price3 = 3000;
+        var result = price1+ price2+price3;
+        answer = result > 10000 ? "초과":"돈 관리 잘했어요!";
+       document.write( "지출 비용:"+result+"원/"+answer,"</br>");
+       document.write("</br>");
+       document.write("Q2. 평균 판매량 구하기","</br>");
+       var a= 1200, b= 1300, c= 1000;
+       var result; 
+       var avg = (a+b+c)/3
+       var d = prompt("4분기 판매량을 입력하시오.");
+       result = avg<d ? "판매량이 평균 이상입니다.":"판매량이 평균 미달입니다.";
+       document.write(result);      
+    </script>
+    
+</body>
+</html>
