@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //조건문(if, else)
+        var score = prompt("enter the score");
+        if(score>=90) document.write("A","<br>") 
+        else if(score>=70) document.write("B","<br>")
+        else document.write("f","<br>")
+        document.write("end","<br>")
+
+        //선택문(switch문)
+        var site = prompt("네이버, 다음, 구글 중\ 선택하시오.");  // 문자열 내 줄 바꿈' \'
+        var url;
+        switch(site){
+            case "네이버":
+                url = "www.naver.com/"
+                break;
+            case "다음":
+                url = "www.daum.net/";
+                break;
+            case "구글":
+                url = "www.google.com/";
+                break;
+            default:
+                url = "error";
+                    }
+        if(url) location.herf = "http://"+url; //페이지 이동하기 location.herf
+
+        //반복문(while, for)
+        //색감 "<p class = 'blue'>",,"</p>"
+        var r = 1;
+        while(r<=10){
+            if(r%2==0) document.write("<p class='blue'>"+r+"</p>");
+            else document.write("<p class='red'>"+r+"</p>");
+            r+=1;}
+        //이중for문
+        for(var i=0;i<5;++i){
+            for(var j=0;j<5;++j){
+                if(i+j<5)document.write("*")
+                else document.write(" ");}
+            document.write("<br>");
+            }
+        //행열 만들기
+        for(var i =0;i<5;++i){
+            for(var j=0;j<5;++j){
+                document.write(i+"행"+j+"열","</br>")
+            }
+            document.write("</br>")
+        }
+            
+        
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
