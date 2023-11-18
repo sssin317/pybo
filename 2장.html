@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+       //document.write('say "hello"');
+       var num1 =10;
+       var num2 = 20;
+       var num3 = 3;
+       var num4 = '10';
+
+       // 복합 연산자- num1=num1+num4 , 문자+숫자 합산시 문자열로 변환==1010
+       num1 += num4; 
+       document.write(num1,"<br>"); //"<br>": 줄바꿈 태그 // 1010
+       var a =10; var b = '10';
+
+       //비교연산자(데이터 타입까지 비교 안함..!==일시 데이터 타입까지 비교)
+       var result; result = a!=b;
+       document.write(result,"<br>");  //false
+
+       //논리 연산자 - &&(and= 둘다 true, true 반환) ||(or 둘 중 하나 true, true 반환) !(not 반대값 반환)
+       result = true && false || true && false; 
+       document.write(result,"<br>"); //false
+       result = a<num2 && a==b || false;
+       document.write(result,"<br>"); //true
+
+       //삼항 조건 연산자 (논리 연산자 ? 값1 : 값2 -연산자 true ,1 //flase ,2)
+       result = true? a:num2;
+       document.write(result,"<br>");
+
+       //Q(숫자를 입력받고 짝수, 홀수 판별)
+       var num = prompt("숫자를 입력하세요","0") // 질의 응답창 띄우기=prompt("~~","0");
+       var answer = num%2==0 ?  "짝수" : "홀수"; 
+       document.write(answer,"<br>")
+
+
+
+       
+
+
+</script>
+</head>
+<body>
+    <h1>Welcome My World</h1>
+</body>
+</html>
