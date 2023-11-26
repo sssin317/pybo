@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //함수-스크립트 저장 공간(문장의 재활용성이 높음), 선언시 function 사용
+        function greeting(name, area){ //greeting 함수 생성, name 매개변수
+            document.write("hello "+name,"<br>");
+            document.write("welcome to "+area,"<br>");
+        }
+        greeting("kim","korea")//함수 호출
+
+        /*함수 {스코프}- 변수 또는 함수의 이용가능한 유효 범위 지칭
+        지역변수- 스코프 영역에서 var를 붙여 선언된 변수를 가리키며, 스코프 영역 내에서만 이용가능!
+        내부함수- 스코프 영역에서 선언된 함수를 지칭, 스코프 내부에서만 호출가능! */
+
+        // 비정상 호출
+        function fncTest(){
+            var num =200;
+        }
+        fncTest();
+        document.write(num)//외부에서 접근 불가! -> num에 값 저장 못함
+
+        // 정상 호출
+        function fncTest(){
+            var num =200;
+            document.write(num,"<br>")//내부에서만 접근 가능
+        }
+        fncTest();
+        document.write(num);
+
+        //return- 값을 반환 후 함수를 강제 종료
+        function myFnc(num1, num2){
+            document.write(num1,"+",num2, "=");
+            return num1 +num2;  
+            document.write("=== 함수 종료 ===")
+        }
+        var result = myFnc(100,200); //함수 호출 값 전달
+        document.write(result); 
+
+        //객체 생성자 함수
+        function CheckWeight(name,height,weight){
+            this.userName =name;
+            this.userHeight=height;
+            this.userWeight =weight;
+            this.minWeight;
+            this.maxWeight;
+
+            this.getinfo(){
+                var str =""
+                str+= "이름: "+this.userName+",";
+                str+= "키: "+this.userHeight+",";
+                str+= "이름: "+this.userWeight+",";
+                return str;
+            }
+            this.getResult = function(){
+                this.minWeight = (this.userHeight-100)*0.9-5;
+                this.maxWeight=(this,userHeight-100)*0.9+5;
+
+                if(this.userWeight >= this.minWeight && this.userWeight <= this.maxWeight){
+                    return "정상 몸무게 입니다.";
+                }
+                else if(this.userWeight < this.minWeight){
+                    return "정상 몸무게보다 미달입니다."
+                }
+                else{
+                    return "정상 몸무게보다 초과입니다."
+                }
+            }
+        }
+        var kim = new CheckWeight("KSE",167,64);
+        var Lee = new CheckWeight("LJH",140,44);
+
+        console.log(kim);
+        console.log(Lee);
+
+        document.write(kim.getinfo());
+        document.write(Lee.getinfo());
+        
+    </script>
+</head>
+<body>
+</body>
+</html>
