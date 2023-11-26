@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //내장 객체_자바스크립트 엔진에 객체를 생성할 수 있는 함수가 내장됨, 필효한 경우 생성하여 사용(참조 변수 = new 객체 생성함수();)
+        //방법1(생성자 함수를 이용하여 객체 등록)
+        var car = new Object(); //Object() 함수 호출 , 변수는 객체의 주소를 가르킴
+        car.color = "white"; // car 객체의 color 변수에 white라는 값이 할당됨
+        car.price = "100만원";
+        car.getinfo = function(){ //함수 등록'
+        document("색상:",this.color,"<br>"); //this. 객체 car를 지칭
+        document("가격:",this.price,"</br>"); 
+        }
+        //방법2(리터럴 방식- 생성자 함수, new 없이)
+        var car ={  //객체 생성
+            "color":"white", //속성등록
+            "price":"1000만원",
+            "getinfo":function(){
+            }
+        }
+
+        //내장 객체 - 날짜 정보 객체
+        var today = new Date(); //today,객체 참조
+        var y =today.getFullYear();
+        var m = today.getMonth(); //항상 현재 월보다 1적게 나옴
+        var d = today.getDate();
+        var day = today.getDay(); //(0.일~6.토)
+
+        document.write(y,"<br>");
+        document.write(m,"<br>");
+        document.write(d,"<br>");
+        document.write(day,"<br>");
+
+        //내장 객체 - 수학객체
+        var num = 1.56;
+        Math.round(num);  //Math,round() 반올림 함수
+        Math.floor(num); // Math.floor() 소수점 삭제
+        Math.celi(num); // Math.celi() 올림 함수
+        Math.random(); //0~1 난수 생성
+
+        //내장 객체 - 문자객체
+        var str = new String("hello world");
+        var first = str.charAt(6); //해당 위치 문자 출력
+        str.indexOf("w"); //문자 w의 인덱스 번호를 알려줌
+        str.indexOf("f");//해당 문자가 없을 시 -1반환
+        str.lastIndexOf("d");//마지막에서 최초의 d를 찾아라
+         
+        document.write(first,"<br>");
+
+        //내장 객체 - 배열 객체(여러개의 데이터를 하나의 저장소에 저장)
+        var arr1 = new Array("갑","을","병","정");
+        document.write(arr1[2],"<br>")
+
+        //브라우저 객체(document-문서 관련 객체, screen-모니터 속성 객체, location-위치 정보, history-기록 관리, navigator- os브라우저에 관한 정보 내장 )
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
