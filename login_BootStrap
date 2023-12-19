@@ -1,1 +1,236 @@
 
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head><script src="/docs/5.3/assets/js/color-modes.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, 그리고 Bootstrap 기여자들">
+    <meta name="generator" content="Hugo 0.115.4">
+    <title>Signin Template · Bootstrap v5.3</title>
+
+    <link rel="canonical" href="https://getbootstrap.kr/docs/5.3/examples/sign-in/">
+
+    
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" 
+    crossorigin="anonymous">
+
+
+    <!-- Favicons -->
+
+<meta name="theme-color" content="#712cf9">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="sign-in.css" rel="stylesheet">
+  </head>
+  <body class="d-flex align-items-center py-4 bg-body-tertiary">
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+      </symbol>
+    </svg>
+
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+              id="bd-theme"
+              type="button"
+              aria-expanded="false"
+              data-bs-toggle="dropdown"
+              aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+            Light
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+            Dark
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
+            Auto
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    
+<main class="form-signin w-100 m-auto">
+  <form method="post" id="login_form" name="login_form" action="login_ok.php">
+    <img class="mb-4" src="data:image/png;base64,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" alt="" width="100" height="100">
+
+    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+    <div class="form-floating">
+      <input type="text" class="form-control" name="id" id="id" placeholder="아이디를 입력하시오.">
+      <label for="floatingInput">아이디</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control" name="pw" id="pw" placeholder="Password">
+      <label for="floatingPassword">비밀번호</label>
+    </div>
+
+    <div class="form-check text-start my-3">
+      <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
+      <label class="form-check-label" for="flexCheckDefault">
+        Remember me
+      </label>
+    </div>
+    <button class="btn btn-primary w-100 py-2" type="button" id="login_btn">Sign in</button>
+    <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
+  </form>
+</main>
+
+
+<script>
+const login_btn = document.querySelector("#login_btn");
+login_btn.addEventListener("click", () => {
+    const id = document.querySelector("#id");
+    const pw = document.querySelector("#pw");
+
+    if (id.value === "") {
+        alert("아이디를 입력해주세요.");
+        id.focus();
+        return false;
+    }
+
+    if (pw.value === "") {
+        alert("비밀번호를 입력해주세요.");
+        pw.focus();
+        return false;
+    }
+
+   const xhr = new XMLHttpRequest();
+   xhr.open("POST","./login_ok.php",true)
+
+   const login_form = document.querySelector("#login_form")
+   const f =new FormData(login_form);
+   xhr.send(f);
+
+   xhr.onload=() =>{
+    if(xhr.status==200){
+        const data = JSON.parse(xhr.responseText);
+        if(data.result=='success'){
+            alert('로그인 성공');
+            self.location.href='./member.html';
+        }else if(data.result=='fail'){
+            alert('로그인 실패');
+        }
+    }else{
+alert("통신에 실패했습니다.")};
+    console.log(xhr.status);
+   }
+
+});
+</script>
+
+
+<script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+    </body>
+</html>
